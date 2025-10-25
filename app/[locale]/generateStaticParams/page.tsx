@@ -32,8 +32,8 @@ const Home = async ({ params }: { params: { locale: string } }) => {
 	)
 }
 
-export async function generateStaticParams() {
-  return [{locale: 'en'}]
-}
+// export async function generateStaticParams() {
+//   return [{locale: 'en'}]
+// }
 
 export default Home;
