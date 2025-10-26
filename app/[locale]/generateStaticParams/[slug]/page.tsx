@@ -4,7 +4,7 @@ import {fakeAwait} from '@/utils/fakeAwait';
 import {cacheLife, cacheTag} from 'next/cache';
 import Image from "next/image";
 
-const Home = async ({ params }: { params: { locale: string } }) => {
+const Home = async ({ params }: { params: { locale: string, slug: string } }) => {
 	cacheLife({ stale: 10, revalidate: 20 })
 	cacheTag('generateStaticParams')
 
@@ -24,7 +24,8 @@ const Home = async ({ params }: { params: { locale: string } }) => {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            locale: {params.locale}
+            locale: {params.locale}<br/>
+						slug: {params.slug}
           </h1>
         </div>
       </main>
@@ -33,7 +34,7 @@ const Home = async ({ params }: { params: { locale: string } }) => {
 }
 
 export async function generateStaticParams() {
-  return [{locale: 'en'}]
+  return [{locale: 'en', 'slug': 'test'}]
 }
 
 export default Home;
