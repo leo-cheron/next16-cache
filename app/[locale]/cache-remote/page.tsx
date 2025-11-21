@@ -15,7 +15,7 @@ async function DelayedComponent() {
 
 const Home = async ({ params }: { params: { locale: string } }) => {
   params = await params;
-	await fakeAwait(1000);
+	await fakeAwait(2000);
 
 	return (
 		<div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">

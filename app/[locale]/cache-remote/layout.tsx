@@ -8,7 +8,7 @@ export default async function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-	await fakeAwait(2000);
+	// await fakeAwait(2000);
   return (
      <Suspense>{children}</Suspense>
   );
