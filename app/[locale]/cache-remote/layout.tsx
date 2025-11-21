@@ -3,13 +3,13 @@
 import {Suspense} from 'react';
 import {fakeAwait} from '@/utils/fakeAwait';
 
-export default async function RootLayout({
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 	await fakeAwait(2000);
   return (
-     <Suspense fallback={<div>Loading 2...</div>}>{children}</Suspense>
+     <Suspense>{children}</Suspense>
   );
 }
