@@ -1,5 +1,3 @@
-'use cache: remote'
-
 import {fakeAwait} from '@/utils/fakeAwait';
 import Image from "next/image";
 import { Suspense } from "react";

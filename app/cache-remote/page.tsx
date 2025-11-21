@@ -2,6 +2,16 @@
 
 import {fakeAwait} from '@/utils/fakeAwait';
 import Image from "next/image";
+import { Suspense } from "react";
+
+async function DelayedComponent() {
+  await fakeAwait(2000);
+  return (
+    <div className="text-sm p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+      I loaded after 2 seconds!
+    </div>
+  );
+}
 
 const Home = async ({ params }: { params: { locale: string } }) => {
   params = await params;
@@ -24,6 +34,11 @@ const Home = async ({ params }: { params: { locale: string } }) => {
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             {locale}
           </h1>
+
+          <Suspense fallback={<div className="text-sm text-zinc-500">Loading suspended component...</div>}>
+            <DelayedComponent />
+          </Suspense>
+
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
