@@ -10,6 +10,6 @@ export default async function RootLayout({
 }>) {
 	await fakeAwait(2000);
   return (
-     <Suspense>{children}</Suspense>
+     <Suspense fallback={<div>Loading 2...</div>}>{children}</Suspense>
   );
 }
