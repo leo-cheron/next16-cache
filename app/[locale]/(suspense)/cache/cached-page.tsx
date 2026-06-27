@@ -1,10 +1,10 @@
 'use cache'
 
-import {fakeAwait} from '@/utils/fakeAwait';
+import { fakeAwait } from "@/utils/fakeAwait";
 import Image from "next/image";
 
-export async function CachedShell({children}: {children: React.ReactNode}) {
-  await fakeAwait(1000);
+export async function CachedPage({ locale }: { locale: string }) {
+  await fakeAwait(2000);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -18,7 +18,13 @@ export async function CachedShell({children}: {children: React.ReactNode}) {
           priority
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          {children}
+          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+            locale: {locale}
+          </h1>
+
+          <div className="text-sm p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+            I loaded after 2 seconds!
+          </div>
         </div>
       </main>
     </div>
