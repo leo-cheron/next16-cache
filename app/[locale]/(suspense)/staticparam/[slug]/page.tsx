@@ -2,8 +2,9 @@
 
 import { CachedPage } from "../../cache/cached-page";
 
+
 export async function generateStaticParams() {
-	return [{ locale: "en" }];
+	return [{ locale: "en", slug: "__placeholder__" }];
 }
 
 export default async function StaticParamPage({
